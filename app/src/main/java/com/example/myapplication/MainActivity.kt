@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
 
         btn.setOnClickListener {
-            val intent = Intent(this, Pantalla2::class.java)
+            val intent = Intent(this, form1::class.java)
             startActivity(intent)
         }
 
