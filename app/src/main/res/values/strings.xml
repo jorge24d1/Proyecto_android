@@ -91,4 +91,8 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_motores_propulsores_form2">Motores_propulsores_form2</string>
+    <string name="title_activity_motores_propulsores_form">Motores_propulsores_Form</string>
+    <string name="title_activity_motores_propulsores_fomulario">Motores_Propulsores_Fomulario
+    </string>
 </resources>

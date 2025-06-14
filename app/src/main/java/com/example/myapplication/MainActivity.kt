@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
 
         btn2.setOnClickListener {
-            val intent = Intent(this, Pantalla2::class.java)
+            val intent = Intent(this, Motores_Propulsores_Fomulario::class.java)
             startActivity(intent)
         }
         val btn3 = findViewById<ImageButton>(R.id.imageButton3)

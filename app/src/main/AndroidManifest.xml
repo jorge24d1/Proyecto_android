@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -14,7 +14,22 @@
         android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".Motores_Propulsores_Fomulario"
+            android:exported="false"
+            android:label="@string/title_activity_motores_propulsores_fomulario"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
+        <activity
+            android:name=".Motores_propulsores_Form"
+            android:exported="false"
+            android:label="@string/title_activity_motores_propulsores_form"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
+        <activity
+            android:name=".Motores_propulsores_form2"
+            android:exported="false"
+            android:label="@string/title_activity_motores_propulsores_form2"
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity
             android:name=".form1"
             android:exported="false"
@@ -28,7 +43,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

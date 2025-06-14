@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Sección superior -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MOTORES PROPULSORES"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Selección de motor -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccione Motor Propulsor"
+            android:textStyle="bold"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Babor"/>
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Estribor"/>
+        </RadioGroup>
+
+        <!-- Texto "Datos" -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Datos"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Selector de fecha -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha: "
+                android:layout_gravity="center_vertical"/>
+
+            <Button
+                android:id="@+id/btnFecha"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#040303"
+                android:text="Seleccionar fecha" />
+        </LinearLayout>
+
+        <!-- Ronda de Inspección -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ronda de Inspección"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerRonda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginVertical="16dp"/>
+
+        <!-- Validación -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validación"
+            android:textStyle="bold"/>
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ronda seleccionada no coincide"/>
+
+        <!-- Condición de la Unidad -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Condición de la Unidad"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Puerto || Fondeado" />
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Navegando"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dique"/>
+        </RadioGroup>
+
+        <!-- SGI -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SGI"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerSGI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Suboficial Guardia Ingeniería"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- TRIM -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trim"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etTrim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el valor Trim del equipo"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Consumo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Consumo"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <CheckBox
+            android:id="@+id/cbFuelRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fuel Rate Consumo L/H"/>
+
+        <CheckBox
+            android:id="@+id/cbRPM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RPM"/>
+
+        <CheckBox
+            android:id="@+id/cbRPMMotor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RPM Motor"/>
+
+        <CheckBox
+            android:id="@+id/cbHT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HT"/>
+
+        <!-- Sección de parámetros -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Parámetros"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <!-- HT Temperatura Agua Camisas -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HT_Temperatura Agua Camisas (70°C - 83°C - 97°C - Alarma 102°C)"/>
+
+        <EditText
+            android:id="@+id/etHTTempAguaCamisas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Temperatura Agua Camisas"
+            android:layout_marginTop="8dp"/>
+
+        <!-- HT Presión Agua Camisas -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HT_Presión Agua Camisas (7 kPa - 14 kPa - 20 kPa - Alarma 25 kPa)"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etHTPresionAguaCamisas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Presión Agua Camisas"
+            android:layout_marginTop="8dp"/>
+
+        <!-- LT Temperatura Aire Admisión -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LT_Temperatura Aire Admisión (5°C - 24°C - 55°C - Alarma 56°C)"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etLTTempAireAdmision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Temperatura Aire Admisión"
+            android:layout_marginTop="8dp"/>
+
+        <!-- LT Temperatura Refrigerante -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LT_Temperatura Refrigerante (24°C - 25°C - 58°C - Alarma 55°C)"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etLTTempRefrigerante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Temperatura Refrigerante"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Sistema de Combustible -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sistema de Combustible"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Presión Entrada Motor -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Presión Entrada Motor (100 kPa - 376 kPa - 390 kPa - Alarma 250 kPa)"/>
+
+        <EditText
+            android:id="@+id/etPresionEntradaMotor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Presión Entrada Motor"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Presión Diferencial Filtro -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Presión Diferencial Filtro (0 kPa - 26 kPa - 104 kPa - Alarma 105 kPa)"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etPresionDiferencialFiltro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Presión Diferencial Filtro"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Sistema de Lubricación -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sistema de Lubricación"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Presión Aceite Motor -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Presión Aceite Motor (170 kPa - 220 kPa - 500 kPa - Alarma 150 kPa)"/>
+
+        <EditText
+            android:id="@+id/etPresionAceiteMotor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Presión Aceite Motor"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Temperatura Aceite Motor -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temperatura Aceite Motor (70°C - 94°C - 97°C - Alarma 90°C)"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etTempAceiteMotor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Temperatura Aceite Motor"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Presión Diferencial Filtro Aceite -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Presión Diferencial Filtro Aceite (0 kPa - 78 kPa - 140 kPa - Alarma 120 kPa)"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etPresionDifFiltroAceite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Presión Diferencial Filtro Aceite"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Presión Carter -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Presión Carter (1 kPa - 2 kPa - 2.5 kPa - Alarma 2 kPa)"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etPresionCarter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Presión Carter"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Intercambiador de placas Agua de Mar -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Intercambiador de placas Agua de Mar"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Temperatura Entrada Agua Mar -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temperatura Entrada Agua Mar (20°C - 35°C)"/>
+
+        <EditText
+            android:id="@+id/etTempEntradaAguaMar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Temperatura Entrada Agua Mar"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Temperatura Salida Agua Mar -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temperatura Salida Agua Mar (25°C - 40°C)"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etTempSalidaAguaMar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Temperatura Salida Agua Mar"
+            android:layout_marginTop="8dp"/>
+
+        <!-- P. Entrada Agua de Mar -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="P. Entrada Agua de Mar"/>
+
+        <EditText
+            android:id="@+id/etPresionEntradaAguaMar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Presión Entrada Agua Mar"
+            android:layout_marginTop="8dp"/>
+
+        <!-- P. Salida Agua de Mar -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="P. Salida Agua de Mar"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etPresionSalidaAguaMar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Presión Salida Agua Mar"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Temperatura Gases de Escape -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temperatura Gases de Escape"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Izquierdo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Izquierdo"/>
+
+        <!-- Temperatura Entrada Turbo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temperatura Entrada Turbo"/>
+
+        <EditText
+            android:id="@+id/etTempEntradaTurboIzq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Temperatura Entrada Turbo Izquierdo"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Derecho -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Derecho"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Temperatura Entrada Turbo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temperatura Entrada Turbo"/>
+
+        <EditText
+            android:id="@+id/etTempEntradaTurboDer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Temperatura Entrada Turbo Derecho"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Voltaje Batería -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Voltaje Batería"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Voltaje Banco de baterías"/>
+
+        <EditText
+            android:id="@+id/etVoltajeBateria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Voltaje Batería"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Observaciones -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Observaciones"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/etObservaciones"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="Ingrese observaciones"
+            android:gravity="top"
+            android:inputType="textMultiLine"/>
+
+        <!-- Botones de acción -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btnEnviar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Enviar"
+                android:backgroundTint="#4CAF50"/>
+
+            <Button
+                android:id="@+id/btnBorrador"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Borrador"
+                android:backgroundTint="#FFC107"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"/>
+
+            <Button
+                android:id="@+id/btnDescartar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Descartar"
+                android:backgroundTint="#F44336"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
