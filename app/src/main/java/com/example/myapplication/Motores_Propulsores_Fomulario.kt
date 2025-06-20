@@ -13,27 +13,24 @@ class Motores_Propulsores_Fomulario : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_motores_propulsores_fomulario) // Asegúrate que este sea el nombre correcto de tu layout
 
-        // Configuración del botón de fecha (igual que en tu código funcional)
         val btnFecha = findViewById<Button>(R.id.btnFecha)
         btnFecha.setOnClickListener {
             showDatePickerDialog()
         }
 
-        // Configuración del spinner de Ronda (igual que en tu código)
         val spinnerRonda = findViewById<android.widget.Spinner>(R.id.spinnerRonda)
         val rondas = arrayOf("Ronda 1", "Ronda 2", "Ronda 3", "Ronda 4")
         val adapterRonda = ArrayAdapter(this, android.R.layout.simple_spinner_item, rondas)
         adapterRonda.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerRonda.adapter = adapterRonda
 
-        // Configuración del spinner de SGI (igual que en tu código)
         val spinnerSGI = findViewById<android.widget.Spinner>(R.id.spinnerSGI)
         val sgiOpciones = arrayOf("SGI 1", "SGI 2", "SGI 3")
         val adapterSGI = ArrayAdapter(this, android.R.layout.simple_spinner_item, sgiOpciones)
         adapterSGI.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerSGI.adapter = adapterSGI
 
-        // No añadimos lógica adicional como pediste
+
     }
 
     private fun showDatePickerDialog() {

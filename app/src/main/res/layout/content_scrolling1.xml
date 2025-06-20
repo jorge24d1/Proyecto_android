@@ -91,21 +91,25 @@
             android:layout_marginTop="16dp"/>
 
         <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/radioPuertoFondeado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Puerto || Fondeado" />
 
             <RadioButton
+                android:id="@+id/radioNavegando"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Navegando"/>
 
             <RadioButton
+                android:id="@+id/radioDique"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dique"/>
