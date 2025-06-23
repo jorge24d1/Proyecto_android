@@ -57,6 +57,64 @@
             android:text="Ronda de Inspección"
             android:textStyle="bold"
             android:layout_marginTop="16dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ronda puntual"
+            android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <!-- Selector de hora -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <NumberPicker
+                    android:id="@+id/npHour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textSize="20sp"/>
+
+                <NumberPicker
+                    android:id="@+id/npMinute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <!-- Botón AM/PM -->
+            <Button
+                android:id="@+id/btnAmPm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="AM"
+                android:backgroundTint="#6200EE"/>
+        </LinearLayout>
+
+        <!-- Botón para hora actual -->
+        <Button
+            android:id="@+id/btnHoraActual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Usar hora actual"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#2196F3"/>
 
         <Spinner
             android:id="@+id/spinnerRonda"

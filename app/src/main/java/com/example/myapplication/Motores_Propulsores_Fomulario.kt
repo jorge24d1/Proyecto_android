@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
@@ -66,6 +67,73 @@ class Motores_Propulsores_Fomulario : AppCompatActivity() {
         val adapterSGI = ArrayAdapter(this, android.R.layout.simple_spinner_item, sgiOpciones)
         adapterSGI.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerSGI.adapter = adapterSGI
+
+        // Configuración de los formularios desplegables
+        setupMotorForms()
+    }
+
+    private fun setupMotorForms() {
+        // Referencias a los botones y formularios
+        val btnBabor = findViewById<Button>(R.id.btnBabor)
+        val btnEstribor = findViewById<Button>(R.id.btnEstribor)
+        val btnCentro = findViewById<Button>(R.id.btnCentro)
+
+        val formBabor = findViewById<LinearLayout>(R.id.formBabor)
+        val formEstribor = findViewById<LinearLayout>(R.id.formEstribor)
+        val formCentro = findViewById<LinearLayout>(R.id.formCentro)
+
+        // Configurar listeners para los botones de los motores
+        btnBabor.setOnClickListener {
+            toggleForm(formBabor)
+            collapseOtherForms(formBabor, formEstribor, formCentro)
+        }
+
+        btnEstribor.setOnClickListener {
+            toggleForm(formEstribor)
+            collapseOtherForms(formEstribor, formBabor, formCentro)
+        }
+
+        btnCentro.setOnClickListener {
+            toggleForm(formCentro)
+            collapseOtherForms(formCentro, formBabor, formEstribor)
+        }
+
+        // Configurar botones de acción
+        val btnEnviar = findViewById<Button>(R.id.btnEnviar)
+        val btnBorrador = findViewById<Button>(R.id.btnBorrador)
+        val btnDescartar = findViewById<Button>(R.id.btnDescartar)
+
+        btnEnviar.setOnClickListener {
+            // Lógica para enviar los datos
+            Toast.makeText(this, "Datos enviados", Toast.LENGTH_SHORT).show()
+        }
+
+        btnBorrador.setOnClickListener {
+            // Lógica para guardar como borrador
+            Toast.makeText(this, "Guardado como borrador", Toast.LENGTH_SHORT).show()
+        }
+
+        btnDescartar.setOnClickListener {
+            // Lógica para descartar los cambios
+            Toast.makeText(this, "Cambios descartados", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+    }
+
+    private fun toggleForm(form: LinearLayout) {
+        if (form.visibility == View.VISIBLE) {
+            form.visibility = View.GONE
+        } else {
+            form.visibility = View.VISIBLE
+        }
+    }
+
+    private fun collapseOtherForms(formToShow: LinearLayout, vararg otherForms: LinearLayout) {
+        for (form in otherForms) {
+            if (form != formToShow) {
+                form.visibility = View.GONE
+            }
+        }
     }
 
     private fun showDatePickerDialog() {
@@ -85,5 +153,25 @@ class Motores_Propulsores_Fomulario : AppCompatActivity() {
             day
         )
         datePickerDialog.show()
+    }
+
+    // Función para obtener los datos de un formulario de motor
+    private fun getMotorData(formPrefix: String): Map<String, String> {
+        val resources = resources
+        val packageName = packageName
+
+        return mapOf(
+            "trim" to findViewById<EditText>(resources.getIdentifier("etTrim$formPrefix", "id", packageName)).text.toString(),
+            "consumo" to findViewById<EditText>(resources.getIdentifier("etConsumo$formPrefix", "id", packageName)).text.toString(),
+            "rpm" to findViewById<EditText>(resources.getIdentifier("etRPM$formPrefix", "id", packageName)).text.toString(),
+            // Agrega aquí todos los demás campos del formulario
+            "observaciones" to findViewById<EditText>(resources.getIdentifier("etObservaciones$formPrefix", "id", packageName)).text.toString()
+        )
+    }
+
+    // Función para validar los datos de un motor
+    private fun validateMotorData(data: Map<String, String>): Boolean {
+        // Implementa la lógica de validación según tus requisitos
+        return data.all { (_, value) -> value.isNotBlank() }
     }
 }

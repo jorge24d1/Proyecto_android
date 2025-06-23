@@ -3,33 +3,39 @@ package com.example.myapplication
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.Button
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import java.util.Calendar
+import java.util.*
 
 class form1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form1)
 
+        // Configuración del selector de fecha
         val btnFecha = findViewById<Button>(R.id.btnFecha)
         btnFecha.setOnClickListener {
             showDatePickerDialog()
         }
 
-        val spinnerRonda = findViewById<android.widget.Spinner>(R.id.spinnerRonda)
+        // Configuración del Spinner de Ronda
+        val spinnerRonda = findViewById<Spinner>(R.id.spinnerRonda)
         val rondas = arrayOf("Ronda 1", "Ronda 2", "Ronda 3", "Ronda 4")
         val adapterRonda = ArrayAdapter(this, android.R.layout.simple_spinner_item, rondas)
         adapterRonda.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerRonda.adapter = adapterRonda
 
-        val spinnerSGI = findViewById<android.widget.Spinner>(R.id.spinnerSGI)
+        // Configuración del selector de hora
+        setupTimePicker()
+
+        // Configuración del Spinner SGI
+        val spinnerSGI = findViewById<Spinner>(R.id.spinnerSGI)
         val sgiOpciones = arrayOf("SGI 1", "SGI 2", "SGI 3")
         val adapterSGI = ArrayAdapter(this, android.R.layout.simple_spinner_item, sgiOpciones)
         adapterSGI.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerSGI.adapter = adapterSGI
 
+        // Configuración de los formularios desplegables
         findViewById<View>(R.id.btnManejadora1).setOnClickListener {
             toggleForm(R.id.formManejadora1)
         }
@@ -51,6 +57,43 @@ class form1 : AppCompatActivity() {
         }
 
         setupCounterButtons()
+    }
+
+    private fun setupTimePicker() {
+        val npHour = findViewById<NumberPicker>(R.id.npHour)
+        val npMinute = findViewById<NumberPicker>(R.id.npMinute)
+        val btnAmPm = findViewById<Button>(R.id.btnAmPm)
+        val btnHoraActual = findViewById<Button>(R.id.btnHoraActual)
+
+        // Configurar NumberPicker para horas (formato 12 horas)
+        npHour.minValue = 1
+        npHour.maxValue = 12
+        npHour.value = Calendar.getInstance().get(Calendar.HOUR).let {
+            if (it == 0) 12 else it
+        }
+
+        // Configurar NumberPicker para minutos
+        npMinute.minValue = 0
+        npMinute.maxValue = 59
+        npMinute.value = Calendar.getInstance().get(Calendar.MINUTE)
+
+        // Configurar AM/PM basado en la hora actual
+        val isPm = Calendar.getInstance().get(Calendar.AM_PM) == Calendar.PM
+        btnAmPm.text = if (isPm) "PM" else "AM"
+
+        // Alternar AM/PM al hacer clic
+        btnAmPm.setOnClickListener {
+            btnAmPm.text = if (btnAmPm.text == "AM") "PM" else "AM"
+        }
+
+        // Botón para establecer hora actual
+        btnHoraActual.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val hour = calendar.get(Calendar.HOUR)
+            npHour.value = if (hour == 0) 12 else hour
+            npMinute.value = calendar.get(Calendar.MINUTE)
+            btnAmPm.text = if (calendar.get(Calendar.AM_PM) == Calendar.PM) "PM" else "AM"
+        }
     }
 
     private fun toggleForm(formId: Int) {
@@ -87,7 +130,7 @@ class form1 : AppCompatActivity() {
 
     private fun setupSingleCounter(buttonId: Int, counterId: Int) {
         findViewById<Button>(buttonId).setOnClickListener {
-            val tvCounter = findViewById<android.widget.TextView>(counterId)
+            val tvCounter = findViewById<TextView>(counterId)
             val currentValue = tvCounter.text.toString().toIntOrNull() ?: 0
             tvCounter.text = (currentValue + 1).toString()
         }
