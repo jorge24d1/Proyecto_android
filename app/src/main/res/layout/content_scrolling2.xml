@@ -22,30 +22,7 @@
             android:layout_marginBottom="16dp"/>
 
         <!-- Selección de motor -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Seleccione Motor Propulsor"
-            android:textStyle="bold"/>
 
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Babor"/>
-
-            <RadioButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Estribor"/>
-        </RadioGroup>
 
         <!-- Texto "Datos" -->
         <TextView
@@ -84,6 +61,64 @@
             android:text="Ronda de Inspección"
             android:textStyle="bold"
             android:layout_marginTop="16dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ronda puntual"
+            android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <!-- Selector de hora -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <NumberPicker
+                    android:id="@+id/npHour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:textSize="20sp"/>
+
+                <NumberPicker
+                    android:id="@+id/npMinute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <!-- Botón AM/PM -->
+            <Button
+                android:id="@+id/btnAmPm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="AM"
+                android:backgroundTint="#6200EE"/>
+        </LinearLayout>
+
+        <!-- Botón para hora actual -->
+        <Button
+            android:id="@+id/btnHoraActual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Usar hora actual"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#2196F3"/>
 
         <Spinner
             android:id="@+id/spinnerRonda"
@@ -104,10 +139,7 @@
             android:text="Validación"
             android:textStyle="bold"/>
 
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ronda seleccionada no coincide"/>
+
 
         <!-- Condición de la Unidad -->
         <TextView
@@ -158,6 +190,31 @@
             android:text="Suboficial Guardia Ingeniería"
             android:layout_marginBottom="16dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccione Motor Propulsor"
+            android:textStyle="bold"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Babor"/>
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Estribor"/>
+        </RadioGroup>
+
         <!-- TRIM -->
         <TextView
             android:layout_width="match_parent"
@@ -180,29 +237,39 @@
             android:textStyle="bold"
             android:layout_marginTop="16dp"/>
 
-        <CheckBox
-            android:id="@+id/cbFuelRate"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Fuel Rate Consumo L/H"/>
 
-        <CheckBox
-            android:id="@+id/cbRPM"
+        <EditText
+            android:id="@+id/etConsumo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RPM"/>
+            android:hint="Ingrese consumo L/H"
+            android:layout_marginTop="8dp"
+            android:inputType="number"/>
 
-        <CheckBox
-            android:id="@+id/cbRPMMotor"
+        <!-- RPM -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RPM"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="RPM Motor"/>
 
-        <CheckBox
-            android:id="@+id/cbHT"
+        <EditText
+            android:id="@+id/etRPM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="HT"/>
+            android:hint="Ingrese RPM Motor"
+            android:layout_marginTop="8dp"
+            android:inputType="number"/>
 
         <!-- Sección de parámetros -->
         <TextView

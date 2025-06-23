@@ -72,11 +72,6 @@
             android:textStyle="bold"
             android:layout_marginTop="16dp"/>
 
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ronda seleccionada no coincide"/>
-
         <!-- Condición de la Unidad -->
         <TextView
             android:layout_width="match_parent"
@@ -157,10 +152,42 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Compresor 2"
-                android:checked="true"/>
+                android:text="Compresor 2"/>
         </RadioGroup>
-        <!-- RPM Motor (super simple como lo pides) -->
+
+        <!-- Contador dinámico -->
+        <LinearLayout
+            android:id="@+id/layoutContadorCompresor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tvTituloContador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contador Compresor"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvContadorCompresor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="18sp"
+                android:layout_marginLeft="16dp"/>
+
+            <Button
+                android:id="@+id/btnIncrementarCompresor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:layout_marginLeft="16dp"/>
+        </LinearLayout>
+
+        <!-- RPM Motor -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -213,6 +240,41 @@
                 android:text="60"/>
         </LinearLayout>
 
+        <!-- Sección de compresores dinámica -->
+        <TextView
+            android:id="@+id/tvPresionSuccionTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="P. Succión"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/etPresionSuccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese presión de succión"
+            android:inputType="numberDecimal"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tvPresionDescargaTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="P. Descarga"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/etPresionDescarga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese presión de descarga"
+            android:inputType="numberDecimal"
+            android:visibility="gone"/>
+
         <!-- Bomba de Agua de Mar -->
         <TextView
             android:layout_width="match_parent"
@@ -222,7 +284,6 @@
             android:textStyle="bold"
             android:layout_marginTop="24dp"/>
 
-        <!-- Presión Succión -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -237,13 +298,12 @@
             android:layout_marginBottom="8dp"/>
 
         <EditText
-            android:id="@+id/etPresionSuccion"
+            android:id="@+id/etPresionSuccionBomba"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Ingrese presión"
             android:inputType="numberDecimal"/>
 
-        <!-- Temp. Descarga -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -264,7 +324,6 @@
             android:hint="Ingrese temperatura"
             android:inputType="numberDecimal"/>
 
-        <!-- Temp. Motor -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -285,7 +344,6 @@
             android:hint="Ingrese temperatura"
             android:inputType="numberDecimal"/>
 
-        <!-- Defrost -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -327,7 +385,6 @@
             android:textStyle="bold"
             android:layout_marginTop="16dp"/>
 
-        <!-- P. Entrada Condensador -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -348,7 +405,6 @@
             android:hint="Ingrese presión"
             android:inputType="numberDecimal"/>
 
-        <!-- P. Salida Condensador -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -369,7 +425,6 @@
             android:hint="Ingrese presión"
             android:inputType="numberDecimal"/>
 
-        <!-- T. Planta Vegetales -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -384,7 +439,6 @@
             android:hint="Ingrese temperatura"
             android:inputType="numberDecimal"/>
 
-        <!-- T. Local Vegetales -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -405,7 +459,6 @@
             android:hint="Ingrese temperatura"
             android:inputType="numberDecimal"/>
 
-        <!-- T. Local Carnes -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -426,7 +479,6 @@
             android:hint="Ingrese temperatura"
             android:inputType="numberDecimal"/>
 
-        <!-- T. Planta Carnes -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

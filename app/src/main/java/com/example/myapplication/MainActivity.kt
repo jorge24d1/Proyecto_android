@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
 
         btn4.setOnClickListener {
-            val intent = Intent(this, Pantalla2::class.java)
+            val intent = Intent(this, form1::class.java)
             startActivity(intent)
         }
         val btn5 = findViewById<ImageButton>(R.id.imageButton5)
